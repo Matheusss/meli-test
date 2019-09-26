@@ -1,0 +1,56 @@
+@import "_mixins";
+@import "_variables";
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	height: 100%;
+}
+
+.application {
+	font-family: 'Roboto' !important;
+}
+
+body {
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	background-color: $lightGray;
+	
+	&::-webkit-scrollbar { 
+		display: none;
+	}
+}
+
+.router-container {
+	height: calc(100% - #{$navbarHeight});
+	width: calc(100% - #{$sidebarMiniWidth});
+	position: relative;
+	top: $navbarHeight;
+	z-index: 1;
+	float: right;
+
+	& > div {
+		height: 100%;
+	}
+
+	&.router-container-login {
+		height: 100%;
+		padding: 0;
+		top: 0;
+		width: 100%;
+	}
+
+	&.database-container {
+		padding-top: 0;
+	}
+
+	.container {
+		max-width: 100% !important;
+	}
+}
+
+.clickable {
+	cursor: pointer;
+}

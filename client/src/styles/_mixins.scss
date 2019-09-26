@@ -1,0 +1,57 @@
+////////////////////////////////////////////
+// Mixins
+////////////////////////////////////////////
+
+////////////////////////////////////////////
+// Media queries
+////////////////////////////////////////////
+
+@mixin mobileDevices { // Phones & Tablets
+  @media (min-width: #{$smallPhoneWidth}) and (max-width: #{$tabletWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktopDevices { // Desktop & big desktop
+  @media (min-width: #{$tabletWidth}) and (max-width: #{$bigDesktopWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin smallPhone {
+  @media (max-width: #{$smallPhoneWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: #{$smallPhoneWidth}) and (max-width: #{$phoneWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$phoneWidth}) and (max-width: #{$tabletWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tabletWidth}) and (max-width: #{$desktopWidth - 1px})  {
+    @content;
+  }
+}
+
+@mixin bigDesktop {
+  @media (min-width: #{$bigDesktopWidth}) {
+    @content;
+  }
+}
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
