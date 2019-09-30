@@ -21,9 +21,9 @@ body {
 }
 
 .router-container {
-	height: calc(100% - #{$navbarHeight});
+	min-height: calc(100% - #{$navbarHeight} - #{$smallMargin} * 2);
 	width: 80%;
-	margin: 0 auto;
+	margin: $smallMargin auto;
 	position: relative;
 	z-index: 1;
 
