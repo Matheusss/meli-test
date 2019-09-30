@@ -7,7 +7,7 @@ Vue.filter('currency', (value) => {
 
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'ARS',
     minimumFractionDigits: 2,
   })
 

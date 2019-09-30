@@ -1,8 +1,7 @@
 // SIZES
-$sidebarMiniWidth: 55px;
-$sidebarFullWidth: 220px;
-$navbarHeight: 60px;
-$breadcrumbHeight: 25px;
+$navbarHeight: 56px;
+$smallMargin: 16px;
+$bigMargin: 32px;
 
 // MEDIA QUERIES
 $smallPhoneWidth : 320px;
@@ -12,18 +11,10 @@ $desktopWidth    : 1024px;
 $bigDesktopWidth : 1200px;
 
 // COLORS
-$primaryColor: #0B1A5D;
-$secondaryColor: #E6E6E6;
+$lightGray: #EEEEEE;
+$gray: #999999;
+$darkGray: #666666;
+$black: #333333;
 
-$gray: #BCBCCB;
-$lightGray: #F9F9F9;
-$darkGray: #727272;
-$secondaryGray: #6F6F6F;
-
-$blue: #3eb0ec;
-$orange: #FCC216;
-$green: #36B37E;
-
-$menuPrimaryColor: #0B1A5D;
-$menuSecondaryColor: darken($menuPrimaryColor, 5%);
-$menuIconsColor: #B5DEF4;
+$blue: #3483FA;
+$yellow: #FFE600;

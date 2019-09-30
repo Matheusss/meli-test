@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <!-- <navbar></navbar> -->
+    <header class="header">
+      <app-header></app-header>
+    </header>
     <div class="router-container">
       <router-view></router-view>
     </div>
@@ -8,9 +10,11 @@
 </template>
 
 <script>
+import AppHeader from '@/modules/Shared/components/header/header.vue'
+
 export default {
   components: {
-    // Navbar,
+    AppHeader,
   },
   computed: {},
   methods: {},
@@ -20,5 +24,17 @@ export default {
 <style lang="scss">
 #app {
   height: 100%;
+
+  .header {
+    height: $navbarHeight;
+    width: 100%;
+    background-color: $yellow;
+    display: block;
+    // justify-content: flex-start;
+    // align-items: center;
+    z-index: 99;
+    padding: 8px 0;
+    box-sizing: border-box;
+  }
 }
 </style>
