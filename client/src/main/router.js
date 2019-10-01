@@ -7,8 +7,10 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  // routes: [{ path: '*', redirect: { name: DEFAULT_ROUTE } }],
-  routes: [{ path: '*' }],
+  routes: [
+    { name: 'home', path: '/'},
+    { path: '*', redirect: { name: 'home' } }
+  ],
 })
 
 // GUARD

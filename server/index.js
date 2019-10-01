@@ -44,10 +44,10 @@ async function getDetails(req, res, next) {
 
 function getList(req, res) {
    try {
-      request.get(`https://api.mercadolibre.com/sites/MLA/search?q=${req.query.search}`, (error, response, body) => {
+      request.get(`https://api.mercadolibre.com/sites/MLA/search?q=${req.query.q}`, (error, response, body) => {
          const results = JSON.parse(body).results.filter((item,idx) => idx < 4)
          const filters = JSON.parse(body).filters
-         const categories = filters.find((item) => item.id === 'category').values[0].path_from_root
+         const categories = filters.find((item) => item.id === 'category')
    
          const items = results.map(item => {
             return {
