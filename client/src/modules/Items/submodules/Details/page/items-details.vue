@@ -2,13 +2,21 @@
   <div class="item-details" v-if="details.item">
     <div class="item-basic-infos">
       <div class="item-image">
-        <img :src="details.item.picture" :alt="details.item.title" width="680" height="680">
+        <img :src="details.item.picture" :alt="details.item.title">
       </div>
       <div class="item-infos">
-        <p class="item-conditions">{{ details.item.condition }} - {{ details.item.sold_quantity }}</p>
+        <p class="item-conditions">
+          <span>{{ $t(`${details.item.condition.toUpperCase()}`) }} - </span>
+          <span>{{ $tc('SOLD', details.item.sold_quantity, {count: details.item.sold_quantity}) }}</span>
+        </p>
 
         <h1>{{ details.item.title }}</h1>
-        <h2>{{ details.item.price.decimals | currency }}</h2>
+        <h2>{{ details.item.price.decimals | currency(details.item.price.currency) }}</h2>
+
+        <button
+          class="buy-btn">
+          Comprar
+        </button>
       </div>
 
     </div>
@@ -53,7 +61,9 @@ export default {
 
       .item-infos {
         width: calc(100% - 680px);
+        padding-left: $smallMargin;
         padding-top: $bigMargin;
+        box-sizing: border-box;
 
         h1 {
           font-size: 24px;
@@ -71,6 +81,18 @@ export default {
           font-size: 14px;
           margin: 0 0 $smallMargin 0;
         }
+
+        .buy-btn {
+          width: 100%;
+          color: #fff;
+          background-color: $blue;
+          cursor: pointer;
+          outline: 0;
+          margin-right: $bigMargin;
+          padding: 10px;
+          border: 0;
+          border-radius: 4px;
+        }
       }
 
     }
@@ -78,7 +100,13 @@ export default {
     .item-image {
       height: 680px;
       width: 680px;
-      margin-right: $smallMargin;
+      flex-grow: 2;
+      // margin-right: $smallMargin;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
 
     .item-description {

@@ -16,8 +16,6 @@ export default {
   components: {
     AppHeader,
   },
-  computed: {},
-  methods: {},
 }
 </script>
 
@@ -30,8 +28,6 @@ export default {
     width: 100%;
     background-color: $yellow;
     display: block;
-    // justify-content: flex-start;
-    // align-items: center;
     z-index: 99;
     padding: 8px 0;
     box-sizing: border-box;

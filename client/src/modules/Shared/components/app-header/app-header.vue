@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <div class="app-logo"></div>
+    <div class="app-logo" @click="goToHome"></div>
 
     <div class="input-search">
       <form class="search-form" @submit.prevent="search">
@@ -31,6 +31,11 @@ export default {
     }
   },
   methods: {
+    goToHome() {
+      this.$router.push({
+        path: '/',
+      })
+    },
     search() {
       this.$router.push({
         name: 'items',

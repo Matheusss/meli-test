@@ -14,6 +14,7 @@ const getters = {
 const actions = {
   async getList({ commit }, search) {
     try {
+      commit('setData', [])
       const result = await service.getList(search)
       commit('setData', result)
     } catch (error) {

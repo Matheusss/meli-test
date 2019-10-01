@@ -8,7 +8,7 @@
       @click="goToDetails">
     <div class="item-infos">
       <p class="item-price" @click="goToDetails">
-        {{ item.price.decimals | currency }}
+        {{ item.price.decimals | currency(item.price.currency) }}
       </p>
       <p>{{ item.title }}</p>
       <p>{{ item.condition }}</p>

@@ -1,13 +1,16 @@
 import Vue from 'vue'
+import { CURRENCIES } from '../main/constants'
 
-Vue.filter('currency', (value) => {
+Vue.filter('currency', (value, currency) => {
   if (typeof value !== 'number') {
     return value
   }
 
-  const formatter = new Intl.NumberFormat('en-US', {
+  const locale = CURRENCIES.find(item => item.key === currency)
+
+  const formatter = new Intl.NumberFormat(locale.value, {
     style: 'currency',
-    currency: 'ARS',
+    currency: locale.key,
     minimumFractionDigits: 2,
   })
 
