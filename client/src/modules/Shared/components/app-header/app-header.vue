@@ -3,12 +3,18 @@
     <div class="app-logo"></div>
 
     <div class="input-search">
-      <form @submit.prevent="search">
+      <form class="search-form" @submit.prevent="search">
         <input
           class="main-input"
           type="text"
           placeholder="Nunca dejes de buscar"
           v-model="model.search" />
+          
+          <button
+            type="submit"
+            class="search-btn">
+
+          </button>
       </form>
     </div>
   </div>
@@ -26,7 +32,12 @@ export default {
   },
   methods: {
     search() {
-      console.log(this.model.search)
+      this.$router.push({
+        name: 'items',
+        query: {
+          search: this.model.search,
+        },
+      })
     }
   }
 }
@@ -44,16 +55,21 @@ export default {
       background-image: url('../../../../assets/Logo_ML.png');
       background-position: center;
       background-repeat: no-repeat;
+      cursor: pointer;
     }
 
     .input-search {
       margin-left: 20px;
       flex-grow: 2;
 
+      .search-form {
+        display: flex;
+      }
+
       .main-input {
         height: 40px;
-        width: 100%;
-        padding: 7px 60px 9px 15px;
+        flex-grow: 2;
+        padding: 10px;
         border: 1px solid $lightGray;
         border-radius: 2px;
         box-sizing: border-box;
@@ -65,6 +81,28 @@ export default {
         &::placeholder {
           font-size: 18px;
           color: $gray;
+        }
+      }
+
+      .search-btn {
+        height: 40px;
+        width: 40px;
+        background-color: $lightGray;
+        background-image: url('../../../../assets/ic_Search.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        border: 1px solid $lightGray;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        position: relative;
+        left: -2px;
+        transform: .3s ease-in-out;
+        outline: 0;
+        
+        &:hover {
+          background-color: darken($lightGray, 2%);
+          transform: .3s ease-in-out;
         }
       }
     }
