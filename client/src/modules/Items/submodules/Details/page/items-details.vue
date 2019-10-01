@@ -12,9 +12,9 @@
       </div>
 
     </div>
-    <div>
+    <div class="item-description">
       <h2>Descripción del producto</h2>
-      {{ details.item.description }}
+      <p>{{ details.item.description }}</p>
     </div>
   </div>
 </template>
@@ -79,6 +79,16 @@ export default {
       height: 680px;
       width: 680px;
       margin-right: $smallMargin;
+    }
+
+    .item-description {
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
     }
   }
 </style>
