@@ -12,11 +12,6 @@ async function getDetails(req, res) {
    const endpoint = `https://api.mercadolibre.com/items/${id}`
 
    try {
-      // const result = await fetch(endpoint)
-      // result.json()
-      // .then(data => {
-      //    console.log(data)
-      // })
       let [details, description] = await Promise.all([
          rp.get((endpoint)),
          rp.get(`${endpoint}/description`)
@@ -35,7 +30,7 @@ async function getDetails(req, res) {
                ammount: details.available_quantity,
                decimals: details.price,
             },
-            picture: details.thumbnail,
+            picture: details.pictures[0].url,
             condition: details.condition,
             free_shiping: details.shipping.free_shipping,
             sold_quantity: details.sold_quantity,
