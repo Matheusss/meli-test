@@ -5,9 +5,9 @@
       :alt="item.title"
       height="180"
       width="180"
-      @click="goToDetails">
+      @click="navigateToDetails">
     <div class="item-infos">
-      <p class="item-price" @click="goToDetails">
+      <p class="item-price" @click="navigateToDetails">
         {{ item.price.decimals | currency(item.price.currency) }}
       </p>
       <p>{{ item.title }}</p>
@@ -27,7 +27,7 @@ export default {
     },
   },
   methods: {
-    goToDetails() {
+    navigateToDetails() {
       this.$router.push({
         name: 'items.details',
         params: {

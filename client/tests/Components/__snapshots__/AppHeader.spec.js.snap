@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader should renders correctly 1`] = `
+<div class="app-header">
+  <div class="app-logo"></div>
+  <div class="input-search">
+    <form class="search-form"><input type="text" placeholder="Nunca dejes de buscar" class="main-input"> <button type="submit" class="search-btn"></button></form>
+  </div>
+</div>
+`;
