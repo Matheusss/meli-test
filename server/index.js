@@ -71,4 +71,4 @@ function getList(req, res) {
 app.get('/api/items', getList);
 app.get('/api/items/:id', getDetails);
 app.use(express.static(`${__dirname}/client/dist`));
-app.listen(8080);
+app.listen(process.env.PORT);
