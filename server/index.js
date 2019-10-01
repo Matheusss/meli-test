@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.get('*', cors());
 
-async function getDetails(req, res) {
+async function getDetails(req, res, next) {
    const { id } = req.params
    const endpoint = `https://api.mercadolibre.com/items/${id}`
 
@@ -38,7 +38,7 @@ async function getDetails(req, res) {
          }
       })
    } catch(error) {
-      res.json(error)
+      next(error)
    }
 };
 
@@ -70,11 +70,14 @@ function getList(req, res) {
          })
       })
    } catch (error) {
-      res.json(error)
+      next(error)
    }
 };
 
 app.get('/api/items', getList);
 app.get('/api/items/:id', getDetails);
+app.use(function (err, req, res, next) {
+   res.status(err.statusCode).send(err.error)
+ })
 app.use(express.static(`${__dirname}/client/dist`));
 app.listen(8080);
