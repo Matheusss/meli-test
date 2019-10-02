@@ -80,4 +80,4 @@ app.use(function (err, req, res, next) {
    res.status(err.statusCode).send(err.error)
  })
 app.use(express.static(`${__dirname}/client/dist`));
-app.listen(8080);
+app.listen(process.env.PORT);
